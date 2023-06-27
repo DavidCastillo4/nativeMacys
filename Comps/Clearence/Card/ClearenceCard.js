@@ -8,19 +8,23 @@ import { st } from '../../../state/state';
 let ClearenceCard = ({ ob }) => {
  let router = useRouter();
  let itemData = useHookstate(st.itemData);
+ let clearenceId = useHookstate(st.clearenceId);
 
  let setItem = async () => {
+  clearenceId.set(ob.id);
   let url = `https://fakestoreapi.com/products/${ob.id}`;
-  let data = await (await axios.get(url)).data  
+  let data = await (await axios.get(url)).data
   itemData.set(data);
-  router.push(`/Detail/`);  
+  router.push(`/Detail/`);
  };
 
  return (
-  <TouchableOpacity style={css.container} onPress={setItem}>
-   <TouchableOpacity style={css.logoContainer}>
+  <TouchableOpacity
+   style={css.container(clearenceId.get(), ob)}
+   onPress={setItem}>
+   <TouchableOpacity style={css.logoContainer} onPress={setItem}>
     <Image
-     source={{uri: ob.image}}
+     source={{ uri: ob.image }}
      resizeMode='contain'
      style={css.logImage}
     />

@@ -3,11 +3,15 @@ import profile from './profile.jpg';
 import search from './search.png';
 import left from './left.png';
 import share from './share.png';
+import cart from './cart.png';
+import amazon from './amazon.png';
 
 export default {
  menu,
  profile,
  search,
  left,
- share
+ share,
+ cart,
+ amazon
 }

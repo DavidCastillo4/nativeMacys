@@ -36,7 +36,7 @@ export default function Detail() {
      headerRight: () => (
       <TouchableOpacity style={theme.ico.btnContainer}  >
        <Image
-        source={img.share}
+        source={img.cart}
         resizeMode='cover'
         style={theme.ico.img('100%')}
        />

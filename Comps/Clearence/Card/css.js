@@ -2,17 +2,18 @@ import { StyleSheet } from "react-native";
 import theme from "../../../contants/theme/theme";
 
 const css = StyleSheet.create({
- container: {
+ container: (selectedJob, item) => ({
   flex: 1,
   justifyContent: "space-between",
   alignItems: "center",
   flexDirection: "row",
   padding: theme.SIZES.medium,
-  borderRadius: theme.SIZES.small,
-  backgroundColor: "#FFF",
+  borderRadius: theme.SIZES.small,  
+  backgroundColor: selectedJob === item.id ? theme.COLORS.primary : "#FFF",
   ...theme.SHADOWS.medium,
   shadowColor: theme.COLORS.white,
- },
+ }),
+
  logoContainer: {
   width: 50,
   height: 50,

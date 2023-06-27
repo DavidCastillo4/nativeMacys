@@ -18,7 +18,7 @@ export default function Home() {
      headerLeft: () => (
       <TouchableOpacity style={theme.ico.btnContainer}  >
        <Image
-        source={img.menu}
+        source={img.amazon}
         resizeMode='cover'
         style={theme.ico.img('60%')}
        />
@@ -27,13 +27,13 @@ export default function Home() {
      headerRight: () => (
       <TouchableOpacity style={theme.ico.btnContainer}  >
        <Image
-        source={img.profile}
+        source={img.cart}
         resizeMode='cover'
         style={theme.ico.img('100%')}
        />
       </TouchableOpacity>
      ),
-     headerTitle: "Macy's",
+     headerTitle: "Amazon",
      headerTitleStyle: { fontWeight: "bold" },
      headerTitleAlign: 'center'
     }}

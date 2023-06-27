@@ -24,9 +24,6 @@ export let Clearence = () => {
   <View style={css.container}>
    <View style={css.header}>
     <Text style={css.headerTitle}>Clearence Items</Text>
-    <TouchableOpacity>
-     <Text style={css.headerBtn}>Show all</Text>
-    </TouchableOpacity>
    </View>
 
    <View style={css.cardsContainer}>

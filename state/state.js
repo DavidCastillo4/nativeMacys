@@ -6,6 +6,7 @@ export let st = {
  clearenceList: hookstate(),
  popularList: hookstate(),
  popularId: hookstate(),
+ clearenceId: hookstate(),
  itemData: hookstate(),
  tabName: hookstate('description')
 }
