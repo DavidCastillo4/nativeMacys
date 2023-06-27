@@ -1,13 +1,15 @@
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image } from "react-native";
-import { Stack, useRouter } from 'expo-router';
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image, ImageBackground } from "react-native";
+import { Stack } from 'expo-router';
 import { useHookstate } from '@hookstate/core';
 import { Clearence } from '../Comps/Clearence/Clearence';
 import { Popular } from '../Comps/Popular/Popular';
 import { Srch } from '../Comps/Srch/Srch';
 import img from '../contants/images/img';
 import theme from '../contants/theme/theme';
+import { st } from '../state/state';
 
 export default function Home() {
+ let cart = useHookstate(st.cart);
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>
@@ -26,11 +28,14 @@ export default function Home() {
      ),
      headerRight: () => (
       <TouchableOpacity style={theme.ico.btnContainer}  >
-       <Image
+       <ImageBackground
         source={img.cart}
         resizeMode='cover'
-        style={theme.ico.img('100%')}
-       />
+        style={theme.ico.img('100%')}>
+        <Text style={{ marginLeft: 17, fontWeight: 600, fontSize: 19, marginTop: -2 }}>
+         {cart.get().length}
+        </Text>
+       </ImageBackground>
       </TouchableOpacity>
      ),
      headerTitle: "Amazon",

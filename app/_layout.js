@@ -16,10 +16,3 @@ if (!fontsLoaded) {
  return <Stack />;
 }
 
-/*
-export default function Layout() {
- return <Stack />;
-}
-
-
-*/

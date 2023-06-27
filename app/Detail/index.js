@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native'
-import { Stack, useRouter } from 'expo-router'
-import axios from 'axios';
+import React from 'react';
+import { ActivityIndicator, Text, Image, ImageBackground, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
 import theme from '../../contants/theme/theme';
 import img from '../../contants/images/img';
 import { useHookstate } from '@hookstate/core';
 import { st } from '../../state/state';
 import css from './css';
 import tab from './tab';
+import Footer from '../../Comps/Footer/Footer';
 
 export default function Detail() {
  let router = useRouter();
  let itemData = useHookstate(st.itemData);
  let tabName = useHookstate(st.tabName);
+ let cart = useHookstate(st.cart);
  let tabs = ['description', 'category', 'title']
 
  return (
@@ -35,11 +36,17 @@ export default function Detail() {
      ),
      headerRight: () => (
       <TouchableOpacity style={theme.ico.btnContainer}  >
-       <Image
+       <ImageBackground
         source={img.cart}
         resizeMode='cover'
         style={theme.ico.img('100%')}
-       />
+       >
+        <Text style={{ marginLeft: 17, fontWeight: 600, fontSize: 19, marginTop: -2 }}>
+         {cart.get().length}
+
+        </Text>
+       </ImageBackground>
+
       </TouchableOpacity>
      ),
      headerTitle: "Detail",
@@ -87,6 +94,8 @@ export default function Detail() {
        <Text style={tab.headText}>{itemData[tabName.get()].get()}</Text>
       </View>
 
+
+
      </View>
 
      : <ActivityIndicator size='large' color={theme.COLORS.primary} />
@@ -94,6 +103,7 @@ export default function Detail() {
 
    </ScrollView>
 
+   <Footer />
   </SafeAreaView>
  );
 

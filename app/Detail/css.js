@@ -4,8 +4,7 @@ import theme from "../../contants/theme/theme";
 let css = StyleSheet.create({
  container: {
   marginVertical: theme.SIZES.medium,
-  alignItems: "center",
-  //width: 390,
+  alignItems: "center",  
  },
  logoBox: {
   width: 380,

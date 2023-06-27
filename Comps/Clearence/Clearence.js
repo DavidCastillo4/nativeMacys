@@ -1,10 +1,8 @@
-import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { useHookstate } from '@hookstate/core';
 import { useEffect } from 'react';
 import theme from '../../contants/theme/theme';
 import css from './css';
-import img from '../../contants/images/img';
-import { useRouter } from "expo-router";
 import { st } from '../../state/state';
 import axios from 'axios';
 import ClearenceCard from './Card/ClearenceCard';

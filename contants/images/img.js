@@ -5,6 +5,7 @@ import left from './left.png';
 import share from './share.png';
 import cart from './cart.png';
 import amazon from './amazon.png';
+import heartOutline from './heartOutline.png';
 
 export default {
  menu,
@@ -13,5 +14,6 @@ export default {
  left,
  share,
  cart,
- amazon
+ amazon,
+ heartOutline
 }

@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native'
-import { Stack, useRouter } from 'expo-router'
-import axios from 'axios';
+import React from 'react';
+import {  Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
 import theme from '../../contants/theme/theme';
 import img from '../../contants/images/img';
-import { useHookstate } from '@hookstate/core';
-import { st } from '../../state/state';
 import css from './css';
 
 export default function Search() {
  let router = useRouter();
- let srch = useHookstate();
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>

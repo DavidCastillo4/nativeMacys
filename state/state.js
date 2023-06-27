@@ -8,5 +8,6 @@ export let st = {
  popularId: hookstate(),
  clearenceId: hookstate(),
  itemData: hookstate(),
- tabName: hookstate('description')
+ tabName: hookstate('description'),
+ cart: hookstate([])
 }
