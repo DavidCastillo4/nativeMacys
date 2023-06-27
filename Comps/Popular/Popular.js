@@ -16,9 +16,7 @@ export let Popular = () => {
   let url = 'https://fakestoreapi.com/products?limit=10';
   let data = await (await axios.get(url)).data  
   popularList.set(data);
- };
-
- 
+ }; 
 
  useEffect(() => { setPopularData(); }, []);
 
@@ -29,7 +27,6 @@ export let Popular = () => {
    </View>
 
    <View style={css.cardsContainer}>
-
     {popularList.get() ?
      <FlatList
       data={popularList.get()}
@@ -40,16 +37,9 @@ export let Popular = () => {
       contentContainerStyle={{ columnGap: theme.SIZES.medium }}
       horizontal
      />
-
-
      : <ActivityIndicator size='large' color={theme.COLORS.primary} />
-
     }
    </View>
-
-
   </View>
  );
-
-
 };

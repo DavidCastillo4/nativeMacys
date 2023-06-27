@@ -21,9 +21,7 @@ const css = StyleSheet.create({
     color: theme.COLORS.gray,
   },
   cardsContainer: {
-    marginTop: theme.SIZES.medium,
-
-    
+    marginTop: theme.SIZES.medium,    
   },
 });
 

@@ -15,15 +15,15 @@ let PopularCard = ({ ob }) => {
   let url = `https://fakestoreapi.com/products/${ob.id}`;
   let data = await (await axios.get(url)).data
   itemData.set(data);
-  router.push(`/Detail/`);   
+  router.push(`/Detail/`);
  };
 
  return (
   <TouchableOpacity
    style={css.container(popularId.get(), ob)}
-   onPress={setItem}
-  >
-   <TouchableOpacity style={css.logoContainer(popularId.get(), ob)}>
+   onPress={setItem}>
+   <TouchableOpacity style={css.logoContainer(popularId.get(), ob)}
+    onPress={setItem}>
     <Image
      source={{ uri: ob.image }}
      resizeMode='contain'
