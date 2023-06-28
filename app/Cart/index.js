@@ -9,7 +9,7 @@ import css from './CSS/css';
 import tab from './CSS/tab';
 import Footer from '../../Comps/Footer/Footer';
 
-export default function Detail() {
+export default function Cart() {
  let router = useRouter();
  let itemData = useHookstate(st.itemData);
  let tabName = useHookstate(st.tabName);

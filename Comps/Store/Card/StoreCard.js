@@ -5,13 +5,13 @@ import css from "./css";
 import { useRouter } from "expo-router";
 import { st } from '../../../state/state';
 
-let ClearenceCard = ({ ob }) => {
+let StoreCard = ({ ob }) => {
  let router = useRouter();
  let itemData = useHookstate(st.itemData);
- let clearenceId = useHookstate(st.clearenceId);
+ let storeId = useHookstate(st.storeId);
 
  let setItem = async () => {
-  clearenceId.set(ob.id);
+  storeId.set(ob.id);
   let url = `https://fakestoreapi.com/products/${ob.id}`;
   let data = await (await axios.get(url)).data
   itemData.set(data);
@@ -20,7 +20,7 @@ let ClearenceCard = ({ ob }) => {
 
  return (
   <TouchableOpacity
-   style={css.container(clearenceId.get(), ob)}
+   style={css.container(storeId.get(), ob)}
    onPress={setItem}>
    <TouchableOpacity style={css.logoContainer} 
    onPress={setItem}>
@@ -32,7 +32,7 @@ let ClearenceCard = ({ ob }) => {
    </TouchableOpacity>
 
    <View style={css.textContainer}>
-    <Text style={css.jobName(clearenceId.get(), ob)} numberOfLines={1}>
+    <Text style={css.jobName(storeId.get(), ob)} numberOfLines={1}>
      {ob.title}
     </Text>
 
@@ -42,4 +42,4 @@ let ClearenceCard = ({ ob }) => {
  );
 };
 
-export default ClearenceCard;
+export default StoreCard;

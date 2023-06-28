@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image, ImageBackground, Linking } from "react-native";
 import { Stack } from 'expo-router';
 import { useHookstate } from '@hookstate/core';
-import { Clearence } from '../Comps/Clearence/Clearence';
+import { Store } from '../Comps/Store/Store';
 import { Popular } from '../Comps/Popular/Popular';
 import { Srch } from '../Comps/Srch/Srch';
 import img from '../contants/images/img';
@@ -61,7 +61,7 @@ export default function Home() {
     <View style={{ flex: 1, padding: '1%' }}>
      <Srch />
      <Popular />
-     <Clearence />
+     <Store />
     </View>
    </ScrollView>
 

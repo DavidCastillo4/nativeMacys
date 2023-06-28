@@ -2,27 +2,25 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useHookstate } from '@hookstate/core';
 import css from './css';
 import img from '../../contants/images/img';
-import { useRouter } from "expo-router";
 import { st } from '../../state/state';
 import axios from 'axios';
 
 export let Srch = () => {
- let router = useRouter();
  let srchStr = useHookstate(st.srchStr);
- let srchList = useHookstate(st.srchList);
+ let storeList = useHookstate(st.storeList);
 
  let setSrchData = async () => {
   if (srchStr.get()) {
    let url = 'https://fakestoreapi.com/products';
    let data = await (await axios.get(url)).data;
-
+   let str = srchStr.get().toLowerCase();
    let result = data.filter(item =>
-    item.description.includes(srchStr.get()) ||
-    item.title.includes(srchStr.get()) ||
-    item.category.includes(srchStr.get())
+
+    item.description.toLowerCase().includes(str) ||
+    item.title.toLowerCase().includes(str) ||
+    item.category.toLowerCase().includes(str)
    );
-   srchList.set(result);
-   router.push(`/Search/`);
+   storeList.set(result);   
   }
  };
 
