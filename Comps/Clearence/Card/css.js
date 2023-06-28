@@ -30,15 +30,15 @@ const css = StyleSheet.create({
   flex: 1,
   marginHorizontal: theme.SIZES.medium,
  },
- jobName: {
+ jobName: (selectedJob, item) => ({
   fontSize: theme.SIZES.medium,
   fontFamily: "DMBold",
-  color: theme.COLORS.primary,
- },
+  color: selectedJob === item.id ? theme.COLORS.white : theme.COLORS.primary,
+ }),
  jobType: {
   fontSize: theme.SIZES.small + 2,
-  fontFamily: "DMRegular",
-  color: theme.COLORS.gray,
+  fontFamily: "DMRegular",  
+  color: "#B3AEC6",
   marginTop: 3,
   textTransform: "capitalize",
  },

@@ -7,6 +7,7 @@ import { st } from '../../state/state';
 let Footer = () => {
  let itemData = useHookstate(st.itemData);
  let cart = useHookstate(st.cart);
+ let heart = useHookstate(st.heart);
 
  let modifyCart = () => {
   cart.set((curr) => {
@@ -18,9 +19,22 @@ let Footer = () => {
   });
  };
 
+ let modifyHeart = () => {
+  heart.set((curr) => {
+   let n = itemData.id.get();
+   let ix = curr.findIndex(i => i === n);
+   return ix === -1 ?
+    [...curr, n]
+    : curr.filter(i => i !== n);
+  });
+ };
+
+
+
  return (
   <View style={css.container}>
-   <TouchableOpacity style={css.likeBtn}>
+   <TouchableOpacity style={css.likeBtn}
+    onPress={modifyHeart}>
     <Image
      source={img.heartOutline}
      resizeMode='contain'

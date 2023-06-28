@@ -9,5 +9,6 @@ export let st = {
  clearenceId: hookstate(),
  itemData: hookstate(),
  tabName: hookstate('description'),
- cart: hookstate([])
-}
+ cart: hookstate([]),
+ heart: hookstate([])
+};

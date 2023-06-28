@@ -1,12 +1,15 @@
 import React from 'react';
 import {  Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
+import { useHookstate } from '@hookstate/core';
 import { Stack, useRouter } from 'expo-router';
 import theme from '../../contants/theme/theme';
 import img from '../../contants/images/img';
+import {st} from '../../state/state';
 import css from './css';
 
 export default function Search() {
  let router = useRouter();
+ let srchList = useHookstate(st.srchList);
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>

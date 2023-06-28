@@ -29,8 +29,8 @@ let css = StyleSheet.create({
   },
   applyBtn: {
     flex: 1,
-    backgroundColor: "#FE7654",
-    height: "100%",
+    backgroundColor: "#FE7654",    
+    height: 55,
     justifyContent: "center",
     alignItems: "center",
     marginLeft: theme.SIZES.medium,
@@ -39,7 +39,7 @@ let css = StyleSheet.create({
   applyBtnText: {
     fontSize: theme.SIZES.medium,
     color: theme.COLORS.white,
-    fontFamily: theme.FONT.bold,
+    fontFamily: theme.FONT.bold,    
   },
 });
 

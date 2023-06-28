@@ -21,7 +21,7 @@ export let Clearence = () => {
  return (
   <View style={css.container}>
    <View style={css.header}>
-    <Text style={css.headerTitle}>Clearence Items</Text>
+    <Text style={css.headerTitle}>Store Items</Text>
    </View>
 
    <View style={css.cardsContainer}>

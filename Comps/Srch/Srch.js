@@ -1,27 +1,34 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useHookstate } from '@hookstate/core';
-import { useEffect } from 'react';
 import css from './css';
 import img from '../../contants/images/img';
 import { useRouter } from "expo-router";
 import { st } from '../../state/state';
+import axios from 'axios';
 
 export let Srch = () => {
  let router = useRouter();
  let srchStr = useHookstate(st.srchStr);
+ let srchList = useHookstate(st.srchList);
 
- let fn = () => {
-  // let a = ['david']
-  // console.log(srch.set(a))
- }
+ let setSrchData = async () => {
+  if (srchStr.get()) {
+   let url = 'https://fakestoreapi.com/products';
+   let data = await (await axios.get(url)).data;
 
- useEffect(() => {
-
- });
+   let result = data.filter(item =>
+    item.description.includes(srchStr.get()) ||
+    item.title.includes(srchStr.get()) ||
+    item.category.includes(srchStr.get())
+   );
+   srchList.set(result);
+   router.push(`/Search/`);
+  }
+ };
 
  return (
   <View>
-   <View style={css.container}>    
+   <View style={css.container}>
     <Text style={css.welcomeMessage}>Search our store!</Text>
    </View>
 
@@ -35,7 +42,7 @@ export let Srch = () => {
      />
     </View>
 
-    <TouchableOpacity style={css.searchBtn} onPress={() => { router.push(`/Search/`) }}>
+    <TouchableOpacity style={css.searchBtn} onPress={setSrchData}>
      <Image
       source={img.search}
       resizeMode='contain'

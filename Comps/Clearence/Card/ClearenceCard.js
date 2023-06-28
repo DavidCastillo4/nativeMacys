@@ -22,7 +22,8 @@ let ClearenceCard = ({ ob }) => {
   <TouchableOpacity
    style={css.container(clearenceId.get(), ob)}
    onPress={setItem}>
-   <TouchableOpacity style={css.logoContainer} onPress={setItem}>
+   <TouchableOpacity style={css.logoContainer} 
+   onPress={setItem}>
     <Image
      source={{ uri: ob.image }}
      resizeMode='contain'
@@ -31,7 +32,7 @@ let ClearenceCard = ({ ob }) => {
    </TouchableOpacity>
 
    <View style={css.textContainer}>
-    <Text style={css.jobName} numberOfLines={1}>
+    <Text style={css.jobName(clearenceId.get(), ob)} numberOfLines={1}>
      {ob.title}
     </Text>
 

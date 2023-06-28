@@ -14,6 +14,7 @@ export default function Detail() {
  let itemData = useHookstate(st.itemData);
  let tabName = useHookstate(st.tabName);
  let cart = useHookstate(st.cart);
+ let heart = useHookstate(st.heart);
  let tabs = ['description', 'category', 'title']
 
  return (
@@ -35,7 +36,17 @@ export default function Detail() {
       </TouchableOpacity>
      ),
      headerRight: () => (
-      <TouchableOpacity style={theme.ico.btnContainer}  >
+      <TouchableOpacity style={theme.ico.btnContainer2}  >
+
+       <ImageBackground
+        source={img.heartOutline}
+        resizeMode='cover'
+        style={theme.ico.img2('100%')}>
+        <Text style={{ marginLeft: 15, fontWeight: 600, fontSize: 19, marginTop: 9 }}>
+         {heart.get().length}
+        </Text>
+       </ImageBackground>
+
        <ImageBackground
         source={img.cart}
         resizeMode='cover'
@@ -43,10 +54,8 @@ export default function Detail() {
        >
         <Text style={{ marginLeft: 17, fontWeight: 600, fontSize: 19, marginTop: -2 }}>
          {cart.get().length}
-
         </Text>
        </ImageBackground>
-
       </TouchableOpacity>
      ),
      headerTitle: "Detail",
@@ -70,31 +79,25 @@ export default function Detail() {
       </View>
 
       <View style={tab.container}>
-
        <FlatList
         data={tabs}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-
          <TouchableOpacity
           style={tab.btn(item, tabName.get())}
           onPress={() => tabName.set(item)}>
           <Text style={tab.btnText(item, tabName.get())}>{item}</Text>
          </TouchableOpacity>
-
         )}
         contentContainerStyle={{ columnGap: theme.SIZES.small / 2 }}
         keyExtractor={(item) => item}
        />
-
       </View>
 
       <View style={tab.containerBox}>
        <Text style={tab.headText}>{itemData[tabName.get()].get()}</Text>
       </View>
-
-
 
      </View>
 
