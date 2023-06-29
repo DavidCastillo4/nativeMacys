@@ -9,11 +9,13 @@ import StoreCard from './Card/StoreCard';
 
 export let Store = () => {
  let storeList = useHookstate(st.storeList);
+ let storeListCount = useHookstate(st.storeListCount);
 
  let setStoreData = async () => {
   let url = 'https://fakestoreapi.com/products';
   let data = await (await axios.get(url)).data
   storeList.set(data);
+  storeListCount.set(20);
  };
 
  useEffect(() => { setStoreData(); }, []);
@@ -24,7 +26,9 @@ export let Store = () => {
     <Text style={css.headerTitle}>Store Items</Text>
 
     <TouchableOpacity onPress={setStoreData}>
-     <Text style={css.headerBtn}>Show all</Text>
+     <Text style={css.headerBtn}>
+      {storeListCount.get() !== 20 ? 'Show all' : ''}
+     </Text>
     </TouchableOpacity>
 
    </View>

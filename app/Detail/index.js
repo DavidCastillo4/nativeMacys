@@ -41,8 +41,8 @@ export default function Detail() {
        <ImageBackground
         source={img.heartOutline}
         resizeMode='cover'
-        style={theme.ico.img2('100%')}>
-        <Text style={{ marginLeft: 15, fontWeight: 600, fontSize: 19, marginTop: 9 }}>
+        style={theme.ico.heart(35)}>
+        <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 13, paddingTop: 6 }}>
          {heart.get().length}
         </Text>
        </ImageBackground>
@@ -50,9 +50,9 @@ export default function Detail() {
        <ImageBackground
         source={img.cart}
         resizeMode='cover'
-        style={theme.ico.img('100%')}
+        style={theme.ico.cart(40)}
        >
-        <Text style={{ marginLeft: 17, fontWeight: 600, fontSize: 19, marginTop: -2 }}>
+        <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
          {cart.get().length}
         </Text>
        </ImageBackground>

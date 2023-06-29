@@ -29,42 +29,47 @@ export default function Home() {
       </TouchableOpacity>
      ),
      headerRight: () => (
-      <TouchableOpacity style={theme.ico.btnContainer2}  >
+      <View style={theme.ico.btnContainer2}  >
 
-       <ImageBackground
-        source={img.heartOutline}
-        resizeMode='contain'
-        style={theme.ico.img2('100%')}>
-        <Text style={{ marginLeft: 15, fontWeight: 600, fontSize: 19, marginTop: 9 }}>
-         {heart.get().length}
-        </Text>
-       </ImageBackground>
+       <TouchableOpacity>
+        <ImageBackground
+         source={img.heartOutline}
+         resizeMode='contain'
+         style={theme.ico.heart(35)}>
+         <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 13, paddingTop: 6 }}>
+          {heart.get().length}
+         </Text>
+        </ImageBackground>
 
+       </TouchableOpacity>
 
+       <TouchableOpacity>
        <ImageBackground
         source={img.cart}
         resizeMode='cover'
-        style={theme.ico.img('100%')}>
-        <Text style={{ marginLeft: 17, fontWeight: 600, fontSize: 19, marginTop: -2 }}>
+        style={theme.ico.cart(40)}>
+        <Text style={{  fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
          {cart.get().length}
         </Text>
        </ImageBackground>
       </TouchableOpacity>
-     ),
-     headerTitle: "Amazon",
-     headerTitleStyle: { fontWeight: "bold" },
-     headerTitleAlign: 'center'
-    }}
-   />
 
-   <ScrollView showsVerticalScrollIndicator={false}>
-    <View style={{ flex: 1, padding: '1%' }}>
-     <Srch />
-     <Popular />
-     <Store />
-    </View>
-   </ScrollView>
+      </View>
+ ),
+  headerTitle: "Amazon",
+   headerTitleStyle: { fontWeight: "bold" },
+ headerTitleAlign: 'center'
+}}
+/>
 
-  </SafeAreaView>
+ < ScrollView showsVerticalScrollIndicator = { false} >
+  <View style={{ flex: 1, padding: '1%' }}>
+   <Srch />
+   <Popular />
+   <Store />
+  </View>
+   </ScrollView >
+
+  </SafeAreaView >
  );
 };

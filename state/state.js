@@ -5,6 +5,7 @@ export let st = {
  srchStr: hookstate(),
  storeList: hookstate(),
  storeId: hookstate(),
+ storeListCount: hookstate(20),
  popularList: hookstate(),
  popularId: hookstate(),
  itemData: hookstate(),
