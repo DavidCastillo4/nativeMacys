@@ -1,4 +1,5 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import axios from 'axios';
 import css from "./css";
 import img from '../../contants/images/img';
 import { useHookstate } from '@hookstate/core';
@@ -8,33 +9,32 @@ let Footer = () => {
  let itemData = useHookstate(st.itemData);
  let cart = useHookstate(st.cart);
  let heart = useHookstate(st.heart);
+ let cartList = useHookstate(st.cartList);
+ let heartList = useHookstate(st.heartList);
 
- let modifyCart = () => {
-  cart.set((curr) => {
+ let setState = (state, list) => {
+  state.set((curr) => {
    let n = itemData.id.get();
    let ix = curr.findIndex(i => i === n);
    return ix === -1 ?
     [...curr, n]
     : curr.filter(i => i !== n);
   });
+  setStateList(state, list)
  };
 
- let modifyHeart = () => {
-  heart.set((curr) => {
-   let n = itemData.id.get();
-   let ix = curr.findIndex(i => i === n);
-   return ix === -1 ?
-    [...curr, n]
-    : curr.filter(i => i !== n);
-  });
+ let setStateList = async (state, list) => {
+  let url = 'https://fakestoreapi.com/products/';
+  let a = state.get();
+  let data = await (await axios.get(url)).data;  
+  let result = data.filter(item => a.includes(item.id));  
+  list.set(result);  
  };
-
-
 
  return (
   <View style={css.container}>
    <TouchableOpacity style={css.likeBtn}
-    onPress={modifyHeart}>
+    onPress={() => setState(heart, heartList)}>
     <Image
      source={img.heartOutline}
      resizeMode='contain'
@@ -44,8 +44,8 @@ let Footer = () => {
 
    <TouchableOpacity
     style={css.applyBtn}
-    onPress={modifyCart}
-   >
+    onPress={() => setState(cart, cartList)}>
+
     <Text style={css.applyBtnText}>
      {cart.get().findIndex(i => i === itemData.id.get()) === -1
       ? 'Add to Cart'

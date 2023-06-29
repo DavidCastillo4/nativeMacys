@@ -10,5 +10,7 @@ export let st = {
  itemData: hookstate(),
  tabName: hookstate('description'),
  cart: hookstate([]),
- heart: hookstate([])
+ heart: hookstate([]),
+ cartList: hookstate(),
+ heartList: hookstate()
 };

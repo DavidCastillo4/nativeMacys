@@ -15,7 +15,6 @@ export let Srch = () => {
    let data = await (await axios.get(url)).data;
    let str = srchStr.get().toLowerCase();
    let result = data.filter(item =>
-
     item.description.toLowerCase().includes(str) ||
     item.title.toLowerCase().includes(str) ||
     item.category.toLowerCase().includes(str)
