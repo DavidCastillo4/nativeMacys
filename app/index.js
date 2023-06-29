@@ -7,11 +7,13 @@ import { Srch } from '../Comps/Srch/Srch';
 import img from '../contants/images/img';
 import theme from '../contants/theme/theme';
 import { st } from '../state/state';
+import { useRouter } from "expo-router";
 
 export default function Home() {
  let cart = useHookstate(st.cart);
  let heart = useHookstate(st.heart);
  let url = 'https://www.amazon.com/ref=nav_logo';
+ let router = useRouter();
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>
@@ -43,31 +45,32 @@ export default function Home() {
 
        </TouchableOpacity>
 
-       <TouchableOpacity>
-       <ImageBackground
-        source={img.cart}
-        resizeMode='cover'
-        style={theme.ico.cart(40)}>
-        <Text style={{  fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
-         {cart.get().length}
-        </Text>
-       </ImageBackground>
-      </TouchableOpacity>
+       <TouchableOpacity on onPress={() => router.push(`/Cart/`)}>
+        <ImageBackground
+         source={img.cart}
+         //onPress={router.push(`/Cart/`)}
+         resizeMode='cover'
+         style={theme.ico.cart(40)}>
+         <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
+          {cart.get().length}
+         </Text>
+        </ImageBackground>
+       </TouchableOpacity>
 
       </View>
- ),
-  headerTitle: "Amazon",
-   headerTitleStyle: { fontWeight: "bold" },
- headerTitleAlign: 'center'
-}}
-/>
+     ),
+     headerTitle: "Amazon",
+     headerTitleStyle: { fontWeight: "bold" },
+     headerTitleAlign: 'center'
+    }}
+   />
 
- < ScrollView showsVerticalScrollIndicator = { false} >
-  <View style={{ flex: 1, padding: '1%' }}>
-   <Srch />
-   <Popular />
-   <Store />
-  </View>
+   < ScrollView showsVerticalScrollIndicator={false} >
+    <View style={{ flex: 1, padding: '1%' }}>
+     <Srch />
+     <Popular />
+     <Store />
+    </View>
    </ScrollView >
 
   </SafeAreaView >

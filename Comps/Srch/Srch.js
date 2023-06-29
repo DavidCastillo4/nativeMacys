@@ -8,7 +8,7 @@ import axios from 'axios';
 export let Srch = () => {
  let srchStr = useHookstate(st.srchStr);
  let storeList = useHookstate(st.storeList);
- let storeListCount = useHookstate(st.storeListCount);
+ let storeListCount = useHookstate(st.storeListCount); 
 
  let setSrchData = async () => {
   if (srchStr.get()) {
@@ -21,7 +21,7 @@ export let Srch = () => {
     item.category.toLowerCase().includes(str)
    );
    storeList.set(result);  
-   storeListCount.set(result.length) 
+   storeListCount.set(result.length);   
   }
  };
 
