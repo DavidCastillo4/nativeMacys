@@ -15,7 +15,7 @@ export default function Cart() {
  let tabName = useHookstate(st.tabName);
  let cart = useHookstate(st.cart);
  let heart = useHookstate(st.heart);
- let tabs = ['description', 'category', 'title']
+ let tabs = ['description', 'category', 'title'];
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>
