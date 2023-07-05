@@ -5,6 +5,7 @@
       "bundler": "metro"
     },
     "name": "native2",
-    "slug": "native2"
+    "slug": "native2",
+    "version" : "1.0.0"
   }
 }
