@@ -9,44 +9,44 @@ import css from './CSS/css';
 import tab from './CSS/tab';
 import HeartCart from '../../Comps/HeartCart/HeartCart';
 
-export default function Cart() {
+export default function Heart() {
  let router = useRouter();
- let cartItem = useHookstate(st.cartItem);
+ let heartItem = useHookstate(st.heartItem);
  let tabName = useHookstate(st.tabName);
  let cart = useHookstate(st.cart);
  let heart = useHookstate(st.heart);
  let tabs = ['description', 'category', 'title'];
- let cartList = useHookstate(st.cartList);
+ let heartList = useHookstate(st.heartList);
 
 
  let handlePagination = (direction) => {
-  if (cartList.get() && cartList.get().length > 0) {
-   let ix = cartList.get().findIndex(item => item.id === cartItem.id.get());
+  if (heartList.get() && heartList.get().length > 0) {
+   let ix = heartList.get().findIndex(item => item.id === heartItem.id.get());
    console.log('ix=', ix)
 
    if (direction === 'right') {
-    let o = cartList[ix + 1];
+    let o = heartList[ix + 1];
 
     if (typeof o.id != 'undefined') {
      let item = JSON.parse(JSON.stringify(o.get()));
-     cartItem.set(item);
+     heartItem.set(item);
     } else {
-     let o = JSON.parse(JSON.stringify(cartList[0].get()));
-     cartItem.set(o);
+     let o = JSON.parse(JSON.stringify(heartList[0].get()));
+     heartItem.set(o);
     };
 
    };
 
    if (direction === 'left') {
-    let o = cartList[ix - 1];
+    let o = heartList[ix - 1];
     
     if (typeof o.id != 'undefined') {
      let item = JSON.parse(JSON.stringify(o.get()));
-     cartItem.set(item) 
+     heartItem.set(item) 
     } 
     else { 
-     let o = JSON.parse(JSON.stringify(cartList[cartList.get().length - 1].get()));
-     cartItem.set(o);     
+     let o = JSON.parse(JSON.stringify(heartList[heartList.get().length - 1].get()));
+     heartItem.set(o);     
     };
    }
   }
@@ -54,11 +54,11 @@ export default function Cart() {
 
 
  useEffect(() => {
-  if (!cartItem.get()) {
+  if (!heartItem.get()) {
    router.push('/')
   };
 
- }, [cartItem.get()]);
+ }, [heartItem.get()]);
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>
@@ -81,7 +81,7 @@ export default function Cart() {
      headerRight: () => (
       <View style={theme.ico.btnContainer2}>
 
-       <TouchableOpacity onPress={() => router.push(`/Heart/`)}>
+       <TouchableOpacity>
         <ImageBackground
          source={img.heartOutline}
          resizeMode='contain'
@@ -106,24 +106,24 @@ export default function Cart() {
 
       </View>
      ),
-     headerTitle: "Cart",
+     headerTitle: "Heart",
     }}
    />
 
    <ScrollView showsVerticalScrollIndicator={false}>
 
-    {cartItem.get() ?
+    {heartItem.get() ?
 
      <View style={css.container}>
 
       <View style={css.logoBox}>
        <Image
-        source={{ uri: cartItem.image.get() }}
+        source={{ uri: heartItem.image.get() }}
         style={css.logoImage} />
       </View>
 
       <View style={css.jobTitleBox}>
-       <Text style={css.jobTitle}>${cartItem.price.get()}</Text>
+       <Text style={css.jobTitle}>${heartItem.price.get()}</Text>
       </View>
 
       <View style={tab.container}>
@@ -146,12 +146,12 @@ export default function Cart() {
       <View style={tab.containerBox}>
 
 
-       <Text style={tab.headText}>{cartItem[tabName.get()].get()}</Text>
+       <Text style={tab.headText}>{heartItem[tabName.get()].get()}</Text>
 
 
       </View>
 
-      <HeartCart ob={cartItem} />
+      <HeartCart ob={heartItem} />
 
      </View>
 
@@ -175,7 +175,7 @@ export default function Cart() {
 
     <View style={theme.paginate.paginationTextBox}>
      <Text style={theme.paginate.paginationText}>
-      {cartList.get().findIndex(item => item.id === cartItem.id.get())+ 1}
+      {heartList.get().findIndex(item => item.id === heartItem.id.get())+ 1}
      </Text>
     </View>
     <TouchableOpacity

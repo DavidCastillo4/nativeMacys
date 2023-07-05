@@ -11,6 +11,7 @@ let HeartCart = ({ob}) => {
  let cartList = useHookstate(st.cartList);
  let heartList = useHookstate(st.heartList);
  let cartItem = useHookstate(st.cartItem);
+ let heartItem = useHookstate(st.heartItem);
 
  let setState = (state, list, stateItem) => {
   state.set((curr) => {
@@ -30,23 +31,18 @@ let HeartCart = ({ob}) => {
   let data = await (await axios.get(url)).data;
   let result = data.filter(item => a.includes(item.id));
   list.set(result);
-  //console.log(result[0])
-
-  if (a.length > 0) {
-  
-   stateItem.set(result[0])
-    //console.log(a.length,'a.length > 0--cartItem=', stateItem.get())
+  if (a.length > 0) {  
+   stateItem.set(result[0])    
   } else { 
-   stateItem.set(null) 
-   //console.log(stateItem.get(),'cartItemNull',a.length)
+   stateItem.set(null)    
   }
-//console.log(stateItem.get())
+
  };
 
  return (
   <View style={css.container}>
    <TouchableOpacity style={css.likeBtn}
-    onPress={() => setState(heart, heartList, cartItem)}>
+    onPress={() => setState(heart, heartList, heartItem)}>
     <Image
      source={img.heartOutline}
      resizeMode='contain'

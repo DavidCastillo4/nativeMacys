@@ -33,7 +33,7 @@ export default function Home() {
      headerRight: () => (
       <View style={theme.ico.btnContainer2}  >
 
-       <TouchableOpacity>
+       <TouchableOpacity onPress={() => router.push(`/Heart/`)}>
         <ImageBackground
          source={img.heartOutline}
          resizeMode='contain'

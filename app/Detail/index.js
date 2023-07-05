@@ -38,7 +38,7 @@ export default function Detail() {
      headerRight: () => (
       <View style={theme.ico.btnContainer2}  >
 
-       <TouchableOpacity>
+       <TouchableOpacity onPress={() => router.push(`/Heart/`)}>
         <ImageBackground
          source={img.heartOutline}
          resizeMode='contain'
