@@ -45,10 +45,9 @@ export default function Home() {
 
        </TouchableOpacity>
 
-       <TouchableOpacity on onPress={() => router.push(`/Cart/`)}>
+       <TouchableOpacity onPress={() => router.push(`/Cart/`)}>
         <ImageBackground
          source={img.cart}
-         //onPress={router.push(`/Cart/`)}
          resizeMode='cover'
          style={theme.ico.cart(40)}>
          <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
@@ -65,7 +64,7 @@ export default function Home() {
     }}
    />
 
-   < ScrollView showsVerticalScrollIndicator={false} >
+   <ScrollView showsVerticalScrollIndicator={false} >
     <View style={{ flex: 1, padding: '1%' }}>
      <Srch />
      <Popular />

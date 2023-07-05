@@ -1,4 +1,4 @@
-const COLORS = {
+let COLORS = {
   primary: "#312651",
   secondary: "#444262",
   tertiary: "#FF7754",
@@ -10,13 +10,13 @@ const COLORS = {
   lightWhite: "#FAFAFC",
 };
 
-const FONT = {
+let FONT = {
   regular: "DMRegular",
   medium: "DMMedium",
   bold: "DMBold",
 };
 
-const SIZES = {
+let SIZES = {
   xSmall: 10,
   small: 12,
   medium: 16,
@@ -25,7 +25,7 @@ const SIZES = {
   xxLarge: 32,
 };
 
-const SHADOWS = {
+let SHADOWS = {
   small: {
     shadowColor: "#000",
     shadowOffset: {

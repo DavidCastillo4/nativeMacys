@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-//import theme from '../theme/theme';
 
 export let ico = StyleSheet.create({
   btnContainer: {

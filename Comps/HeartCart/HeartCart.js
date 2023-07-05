@@ -5,8 +5,7 @@ import img from '../../contants/images/img';
 import { useHookstate } from '@hookstate/core';
 import { st } from '../../state/state';
 
-let Footer = () => {
- let itemData = useHookstate(st.itemData);
+let HeartCart = ({ob}) => {
  let cart = useHookstate(st.cart);
  let heart = useHookstate(st.heart);
  let cartList = useHookstate(st.cartList);
@@ -15,7 +14,7 @@ let Footer = () => {
 
  let setState = (state, list, stateItem) => {
   state.set((curr) => {
-   let n = itemData.id.get();
+   let n = ob.id.get();
    let ix = curr.findIndex(i => i === n);
    return ix === -1 ?
     [...curr, n]
@@ -60,7 +59,7 @@ let Footer = () => {
     onPress={() => setState(cart, cartList, cartItem)}>
 
     <Text style={css.applyBtnText}>
-     {cart.get().findIndex(i => i === itemData.id.get()) === -1
+     {cart.get().findIndex(i => i === ob.id.get()) === -1
       ? 'Add to Cart'
       : 'Remove from Cart'}
     </Text>
@@ -69,4 +68,4 @@ let Footer = () => {
  );
 };
 
-export default Footer;
+export default HeartCart;

@@ -36,27 +36,32 @@ export default function Detail() {
       </TouchableOpacity>
      ),
      headerRight: () => (
-      <TouchableOpacity style={theme.ico.btnContainer2}  >
+      <View style={theme.ico.btnContainer2}  >
 
-       <ImageBackground
-        source={img.heartOutline}
-        resizeMode='cover'
-        style={theme.ico.heart(35)}>
-        <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 13, paddingTop: 6 }}>
-         {heart.get().length}
-        </Text>
-       </ImageBackground>
+       <TouchableOpacity>
+        <ImageBackground
+         source={img.heartOutline}
+         resizeMode='contain'
+         style={theme.ico.heart(35)}>
+         <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 13, paddingTop: 6 }}>
+          {heart.get().length}
+         </Text>
+        </ImageBackground>
 
+       </TouchableOpacity>
+
+       <TouchableOpacity onPress={() => router.push(`/Cart/`)}>
        <ImageBackground
         source={img.cart}
         resizeMode='cover'
-        style={theme.ico.cart(40)}
-       >
-        <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
+        style={theme.ico.cart(40)}>
+        <Text style={{  fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
          {cart.get().length}
         </Text>
        </ImageBackground>
       </TouchableOpacity>
+
+      </View>
      ),
      headerTitle: "Detail",
     }}

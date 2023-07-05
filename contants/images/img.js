@@ -6,6 +6,8 @@ import share from './share.png';
 import cart from './cart.png';
 import amazon from './amazon.png';
 import heartOutline from './heartOutline.png';
+import chevronLeft from './chevronLeft.png';
+import chevronRight from './chevronRight.png';
 
 export default {
  menu,
@@ -15,5 +17,7 @@ export default {
  share,
  cart,
  amazon,
- heartOutline
+ heartOutline,
+ chevronLeft,
+ chevronRight
 }
