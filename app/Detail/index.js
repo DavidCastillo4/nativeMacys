@@ -1,8 +1,7 @@
 import React from 'react';
-import { ActivityIndicator, Text, Image, ImageBackground, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { ActivityIndicator, Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
 import { Stack } from 'expo-router';
 import theme from '../../contants/theme/theme';
-
 import { useHookstate } from '@hookstate/core';
 import { st } from '../../state/state';
 import css from './CSS/css';

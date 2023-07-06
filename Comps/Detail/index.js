@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Text, Image, ImageBackground, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { ActivityIndicator, Text, Image, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import theme from '../../contants/theme/theme';
 import img from '../../contants/images/img';
@@ -13,11 +13,8 @@ import { screenOptions } from '../../Comps/StackScreen/StackScreen';
 export let Detail = ({ stateList_, stateItem_, txt }) => {
  let stateList = useHookstate(stateList_);
  let stateItem = useHookstate(stateItem_);
-
  let router = useRouter();
- let tabName = useHookstate(st.tabName);
- let cart = useHookstate(st.cart);
- let heart = useHookstate(st.heart);
+ let tabName = useHookstate(st.tabName); 
  let tabs = ['description', 'category', 'title'];
 
  let handlePagination = (direction) => {
