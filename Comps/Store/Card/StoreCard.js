@@ -6,9 +6,11 @@ import { useRouter } from "expo-router";
 import { st } from '../../../state/state';
 
 let StoreCard = ({ ob }) => {
+ let storeId = useHookstate(st.storeId);
+
  let router = useRouter();
  let itemData = useHookstate(st.itemData);
- let storeId = useHookstate(st.storeId);
+
 
  let setItem = async () => {
   storeId.set(ob.id);
@@ -22,8 +24,8 @@ let StoreCard = ({ ob }) => {
   <TouchableOpacity
    style={css.container(storeId.get(), ob)}
    onPress={setItem}>
-   <TouchableOpacity style={css.logoContainer} 
-   onPress={setItem}>
+   <TouchableOpacity style={css.logoContainer}
+    onPress={setItem}>
     <Image
      source={{ uri: ob.image }}
      resizeMode='contain'

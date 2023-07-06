@@ -7,6 +7,7 @@ import { st } from '../../../state/state';
 
 let PopularCard = ({ ob }) => {
  let popularId = useHookstate(st.popularId);
+ 
  let itemData = useHookstate(st.itemData);
  let router = useRouter();
 

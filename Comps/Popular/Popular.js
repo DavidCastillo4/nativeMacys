@@ -8,7 +8,7 @@ import axios from 'axios';
 import PopularCard from './Card/PopularCard';
 
 export let Popular = () => {
- let popularList = useHookstate(st.popularList);
+ let popularList = useHookstate(st.popularList); 
 
  let setPopularData = async () => {
   let url = 'https://fakestoreapi.com/products?limit=10';
@@ -28,7 +28,7 @@ export let Popular = () => {
     {popularList.get() ?
      <FlatList
       data={popularList.get()}
-      renderItem={({ item }) => (
+      renderItem={({ item }) => (       
        <PopularCard ob={item} />
       )}
       keyExtractor={(item) => item.id}
@@ -38,6 +38,7 @@ export let Popular = () => {
      : <ActivityIndicator size='large' color={theme.COLORS.primary} />
     }
    </View>
+
   </View>
  );
 };

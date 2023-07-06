@@ -11,6 +11,7 @@ const css = StyleSheet.create({
   ...theme.SHADOWS.medium,
   shadowColor: theme.COLORS.white,
  }),
+ 
  logoContainer: (selectedJob, item) => ({
   width: 50,
   height: 50,
@@ -19,6 +20,8 @@ const css = StyleSheet.create({
   justifyContent: "center",
   alignItems: "center",
  }),
+
+
  logoImage: {
   width: "70%",
   height: "70%",

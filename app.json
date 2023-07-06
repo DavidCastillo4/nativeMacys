@@ -6,6 +6,14 @@
     },
     "name": "native2",
     "slug": "native2",
-    "version" : "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "369bf4b7-eaa2-4e79-abc0-bfad18957610"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "native2.dev"
+    }
   }
 }

@@ -1,71 +1,23 @@
 import React from 'react';
 import { ActivityIndicator, Text, Image, ImageBackground, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
+import { Stack } from 'expo-router';
 import theme from '../../contants/theme/theme';
-import img from '../../contants/images/img';
+
 import { useHookstate } from '@hookstate/core';
 import { st } from '../../state/state';
 import css from './CSS/css';
 import tab from './CSS/tab';
-import Footer from '../../Comps/Footer/Footer';
+import HeartCart from '../../Comps/HeartCart/HeartCart';
+import { screenOptions } from '../../Comps/StackScreen/StackScreen';
 
 export default function Detail() {
- let router = useRouter();
  let itemData = useHookstate(st.itemData);
  let tabName = useHookstate(st.tabName);
- let cart = useHookstate(st.cart);
- let heart = useHookstate(st.heart);
- let tabs = ['description', 'category', 'title']
+ let tabs = ['description', 'category', 'title'];
 
  return (
   <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.lightWhite }}>
-   <Stack.Screen
-    options={{
-     headerStyle: { backgroundColor: theme.COLORS.lightWhite },
-     headerShadowVisible: false,
-     headerBackVisible: false,
-     headerTitleStyle: { fontWeight: "bold" },
-     headerTitleAlign: 'center',
-     headerLeft: () => (
-      <TouchableOpacity style={theme.ico.btnContainer} onPress={() => router.back()} >
-       <Image
-        source={img.left}
-        resizeMode='cover'
-        style={theme.ico.img('60%')}
-       />
-      </TouchableOpacity>
-     ),
-     headerRight: () => (
-      <View style={theme.ico.btnContainer2}  >
-
-       <TouchableOpacity onPress={() => router.push(`/Heart/`)}>
-        <ImageBackground
-         source={img.heartOutline}
-         resizeMode='contain'
-         style={theme.ico.heart(35)}>
-         <Text style={{ fontWeight: 600, fontSize: 19, paddingLeft: 13, paddingTop: 6 }}>
-          {heart.get().length}
-         </Text>
-        </ImageBackground>
-
-       </TouchableOpacity>
-
-       <TouchableOpacity onPress={() => router.push(`/Cart/`)}>
-       <ImageBackground
-        source={img.cart}
-        resizeMode='cover'
-        style={theme.ico.cart(40)}>
-        <Text style={{  fontWeight: 600, fontSize: 19, paddingLeft: 18 }}>
-         {cart.get().length}
-        </Text>
-       </ImageBackground>
-      </TouchableOpacity>
-
-      </View>
-     ),
-     headerTitle: "Detail",
-    }}
-   />
+   <Stack.Screen options={screenOptions('Detail')} />
 
    <ScrollView showsVerticalScrollIndicator={false}>
 
@@ -111,7 +63,7 @@ export default function Detail() {
 
    </ScrollView>
 
-   <Footer />
+   <HeartCart ob={itemData} />
   </SafeAreaView>
  );
 

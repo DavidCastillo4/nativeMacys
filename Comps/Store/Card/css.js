@@ -22,6 +22,17 @@ const css = StyleSheet.create({
   justifyContent: "center",
   alignItems: "center",
  },
+
+
+ // logoContainer: (selectedJob, item) => ({
+ //  width: 50,
+ //  height: 50,
+ //  backgroundColor: selectedJob === item.id ? "#FFF" : theme.COLORS.white,
+ //  borderRadius: theme.SIZES.medium,
+ //  justifyContent: "center",
+ //  alignItems: "center",
+ // }),
+
  logImage: {
   width: "70%",
   height: "70%",

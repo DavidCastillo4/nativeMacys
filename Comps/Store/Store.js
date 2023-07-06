@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
+import { View, Text, ActivityIndicator, TouchableOpacity, FlatList } from "react-native";
 import { useHookstate } from '@hookstate/core';
 import { useEffect } from 'react';
 import theme from '../../contants/theme/theme';
@@ -9,7 +9,7 @@ import StoreCard from './Card/StoreCard';
 
 export let Store = () => {
  let storeList = useHookstate(st.storeList);
- let storeListCount = useHookstate(st.storeListCount);
+ let storeListCount = useHookstate(st.storeListCount); 
 
  let setStoreData = async () => {
   let url = 'https://fakestoreapi.com/products';
@@ -35,16 +35,19 @@ export let Store = () => {
 
    <View style={css.cardsContainer}>
     {storeList.get() ?
-     storeList.get().map((ob) => (
-      <StoreCard
-       ob={ob}
-       key={ob.id}
-      />
-     ))
-     : (<ActivityIndicator size='large' color={theme.COLORS.primary} />)
+     <FlatList
+      data={storeList.get()}
+      renderItem={({ item }) => (
+       <StoreCard ob={item} />       
+      )}
+      keyExtractor={(item) => item.id}     
+     />
+     : <ActivityIndicator size='large' color={theme.COLORS.primary} />
     }
    </View>
 
   </View>
  );
 };
+
+
