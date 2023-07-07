@@ -6,6 +6,7 @@
     },
     "name": "native2",
     "slug": "native2",
+    "icon": "./icon4.png",
     "version": "1.0.0",
     "extra": {
       "eas": {
